@@ -1,0 +1,4 @@
+/course-files/*
+/node_modules/*
+index-html
+/dist/*
