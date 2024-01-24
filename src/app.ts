@@ -30,7 +30,7 @@ function Autobind(
     get() {
       // new methods will be same as old one but will bind 'this'(global object: since decorators get the global object to the class it is used in)
       const boundFn = currentDescriptor.bind(this);
-      console.log(`This is 'this' object from Autobind::::`, this);
+      // console.log(`This is 'this' object from Autobind::::`, this);
       // returned the newly bounded method 'boundFn' in 'newDescriptor'
       return boundFn;
     },
@@ -308,6 +308,7 @@ class ProjectList
       droppedId,
       this.type === "active" ? ProjectStatus.Active : ProjectStatus.Finished
     );
+    console.log('Dropped');
   }
 
   configure(): void {
@@ -416,9 +417,9 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     this.peopleInputElement = this.element.querySelector(
       "#people"
     ) as HTMLInputElement;
-    console.log(`This is title:::: ${this.titleInputElement.value} \n\n 
-        This is description:::: ${this.descriptionInputElement.value} \n\n
-        This is people:::: ${this.peopleInputElement.value} \n\n`);
+    // console.log(`This is title:::: ${this.titleInputElement.value} \n\n 
+    //     This is description:::: ${this.descriptionInputElement.value} \n\n
+    //     This is people:::: ${this.peopleInputElement.value} \n\n`);
 
     this.configure();
   }
@@ -446,7 +447,7 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
 
     // check if non-empty tupple is passed
     if (Array.isArray(input)) {
-      console.log("This is input:::", input);
+      // console.log("This is input:::", input);
       const [title, description, people] = input;
 
       // call the static 'projectData' function of class 'ProjectState'
@@ -473,7 +474,7 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
       people.trim().length == 0
     ) {
       // alert even if a single field is empty
-      alert("All fields must be entered!");
+      alert("All fields are compulsory!");
 
       // null is preferred over void since the handler function can easily check returned values
       return null;
@@ -484,7 +485,7 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
 
   // Reset the input field
   private resetInput() {
-    console.log("Entered resetInput");
+    console.log("Reset Input");
     this.element.reset();
   }
 }
